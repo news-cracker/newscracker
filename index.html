@@ -20,6 +20,13 @@
 <link rel="canonical" href="https://news-cracker.github.io/newscracker/">
 <link rel="icon" href="icon-180.png">
 <link rel="apple-touch-icon" href="icon-180.png">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9V4H2E26FL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9V4H2E26FL');
+</script>
 <style>
   :root{
     --cream:#FFEFDA;
@@ -205,5 +212,26 @@
     <span class="copy">© NewsCracker · Team EagerBeavers</span>
   </footer>
 </main>
+<script>
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var utm = {};
+  ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'].forEach(function (k) {
+    var v = params.get(k);
+    if (v) utm[k] = v;
+  });
+  function bind(selector, store) {
+    var el = document.querySelector(selector);
+    if (!el) return;
+    el.addEventListener('click', function () {
+      if (typeof gtag === 'function') {
+        gtag('event', 'store_click', Object.assign({ store: store, transport_type: 'beacon' }, utm));
+      }
+    });
+  }
+  bind('.btn-ios', 'ios');
+  bind('.btn-android', 'android');
+})();
+</script>
 </body>
 </html>
